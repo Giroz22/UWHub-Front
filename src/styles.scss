@@ -1,1 +1,29 @@
-/* You can add global styles to this file, and also import other style files */
+@use "styles/colors" as *;
+@use "styles/fondo" as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: $color-background-light;
+  font-family: "Roboto", sans-serif;
+}
+
+button {
+  background: transparent;
+  color: $color-background-light;
+  border: 2px solid $color-background-light;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+
+  &:hover {
+    color: $color-background-dark;
+    background-color: $color-background-light;
+  }
+}

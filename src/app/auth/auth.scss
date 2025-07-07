@@ -1,0 +1,41 @@
+@use "../../styles/colors" as *;
+
+.auth-container {
+  width: 100%;
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .auth-form {
+    width: 40%;
+    height: 80%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+
+    padding: 25px 40px;
+
+    background-color: $color-background-medium;
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+
+    .auth-body {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 100%;
+
+      border-bottom: 2px solid $color-background-light;
+    }
+
+    .auth-footer {
+      height: 20%;
+    }
+  }
+}

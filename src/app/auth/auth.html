@@ -1,0 +1,17 @@
+<div class="auth-container">
+  <div class="auth-form">
+    <div class="auth-body">
+      @if (isRegister) {
+      <app-form-login></app-form-login>
+      }@else {
+      <app-form-register></app-form-register>
+      }
+    </div>
+
+    <div class="auth-footer">
+      <button (click)="isRegister = !isRegister">
+        {{ isRegister ? "No tienes una cuenta?" : "Ya tienes una cuenta?" }}
+      </button>
+    </div>
+  </div>
+</div>
