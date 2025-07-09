@@ -1,4 +1,4 @@
-@use "../../styles/colors" as *;
+@use "../../styles/variables" as *;
 
 .auth-container {
   width: 100%;
@@ -20,22 +20,18 @@
     padding: 25px 40px;
 
     background-color: $color-background-medium;
-    border-radius: 20px;
+    border-radius: $border-radius;
     backdrop-filter: blur(5px);
 
     .auth-body {
       flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
       width: 100%;
 
       border-bottom: 2px solid $color-background-light;
     }
 
     .auth-footer {
-      height: 20%;
+      height: 10%;
     }
   }
 }

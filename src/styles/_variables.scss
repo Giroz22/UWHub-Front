@@ -1,3 +1,4 @@
+//====Colores=====
 // Neutros
 $color-background-dark: #000000;
 $color-background-medium: #0d0d0d;
@@ -12,3 +13,8 @@ $color-primary-dark: #0066a3; // 20% más oscuro
 $color-secondary: #ff6f61; // naranja cálido
 $color-tertiary: #ffd700; // dorado
 $color-quaternary: #8affc1; // verde agua
+
+//===variables de estilo===
+$border-radius: 8px;
+$transition: all 0.3s linear;
+$shadow: 0 0 5px $color-primary;
