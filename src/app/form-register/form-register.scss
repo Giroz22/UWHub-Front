@@ -1,7 +1,22 @@
+@use "../../styles/variables" as *;
 @use "../../styles/form" as *;
 
 .element-user-info {
   display: flex;
-  justify-content: space-evenly;
-  gap: 1rem;
+  flex-direction: column;
+  gap: $vertical-spacing;
+}
+
+/* Tablets (≥768px y <1024px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .element-user-info {
+    flex-direction: row;
+  }
+}
+
+/* Escritorio (≥1024px) */
+@media (min-width: 1024px) {
+  .element-user-info {
+    flex-direction: row;
+  }
 }

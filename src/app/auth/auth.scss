@@ -9,15 +9,12 @@
   justify-content: center;
 
   .auth-form {
-    width: 40%;
-    height: 80%;
+    width: 90%;
+    height: auto;
 
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 25px;
-
-    padding: 25px 40px;
 
     background-color: $color-background-medium;
     border-radius: $border-radius;
@@ -26,12 +23,35 @@
     .auth-body {
       flex: 1;
       width: 100%;
+      padding: $vertical-spacing $horizontal-spacing;
 
       border-bottom: 2px solid $color-background-light;
     }
 
     .auth-footer {
-      height: 10%;
+      width: 100%;
+      padding: $vertical-spacing $horizontal-spacing;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+/* Tablets (≥768px y <1024px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .auth-container {
+    .auth-form {
+      width: 80%;
+    }
+  }
+}
+
+/* Escritorio (≥1024px) */
+@media (min-width: 1024px) {
+  .auth-container {
+    .auth-form {
+      width: 50%;
     }
   }
 }

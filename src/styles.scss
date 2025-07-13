@@ -1,7 +1,9 @@
 @use "styles/variables" as *;
 @use "styles/fondo" as *;
 
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -42,19 +44,3 @@ a {
     text-shadow: $shadow;
   }
 }
-
-input {
-  background-color: transparent;
-  border: 2px solid $color-background-light;
-  border-radius: $border-radius;
-  padding: 10px 15px;
-  color: $color-background-light;
-
-  &:focus {
-    border-color: $color-primary;
-    outline: none;
-    transition: $transition;
-    box-shadow: $shadow;
-  }
-}
-

@@ -1,32 +1,32 @@
 @use "variables" as *;
 
 .forms {
-  padding: 1rem 1rem;
-
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  gap: 1rem;
+  gap: $vertical-spacing;
 
   width: 100%;
   height: 100%;
 
   .form-header {
-    .form-title {
-      text-align: center;
-    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: $vertical-spacing $horizontal-spacing;
   }
 
   .form-body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 2rem;
+    gap: $vertical-spacing;
 
     .form-element {
+      width: 100%;
       display: flex;
       flex-direction: column;
-      gap: 0.8rem;
+      gap: 2px;
 
       label {
         color: $color-background-light;
@@ -43,4 +43,28 @@
 .form-error {
   color: red;
   font-size: 0.8em;
+}
+
+input {
+  background-color: transparent;
+  border: 2px solid $color-background-light;
+  border-radius: $border-radius;
+  padding: 10px 10px;
+  font-size: large;
+  color: $color-background-light;
+
+  &:focus {
+    border-color: $color-primary;
+    outline: none;
+    transition: $transition;
+    box-shadow: $shadow;
+  }
+}
+
+/* Tablets (≥768px y <1024px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+}
+
+/* Escritorio (≥1024px) */
+@media (min-width: 1024px) {
 }
