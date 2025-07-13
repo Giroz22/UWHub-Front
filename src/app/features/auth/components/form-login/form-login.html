@@ -26,6 +26,12 @@
       <div class="form-error">La contraseña es requerida.</div>
       }
     </div>
+
+    @if (errorMessage) {
+    <div class="form-message-error">
+      {{ errorMessage }}
+    </div>
+    }
   </div>
 
   <!-- Form Footer -->

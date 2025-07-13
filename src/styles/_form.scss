@@ -45,6 +45,14 @@
   font-size: 0.8em;
 }
 
+.form-message-error {
+  background-color: rgb(255, 150, 150);
+  color: red;
+  padding: 10px;
+  border: 2px solid red;
+  border-radius: $border-radius;
+}
+
 input {
   background-color: transparent;
   border: 2px solid $color-background-light;

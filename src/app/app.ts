@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { Auth } from "./auth/auth";
+import { Auth } from "./features/auth/components/auth/auth";
 
 @Component({
   selector: "app-root",
