@@ -9,5 +9,5 @@ import { FormRegister } from "../form-register/form-register";
   styleUrl: "./auth.scss",
 })
 export class Auth {
-  protected isRegister: boolean = true;
+  protected isRegister: boolean = false;
 }
