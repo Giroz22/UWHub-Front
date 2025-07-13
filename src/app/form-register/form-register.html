@@ -1,25 +1,37 @@
-<form class="forms">
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="forms">
   <div class="form-header">
     <h2 class="form-title">Register</h2>
   </div>
   <div class="form-body">
     <div class="element-user-info">
       <div class="form-element">
-        <label for="username">Nombre</label>
-        <input type="text" id="username" name="username" />
+        <label for="name">Nombre*</label>
+        <input type="text" id="name" formControlName="name" />
+        @if (registerForm.get('name')?.invalid &&
+        registerForm.get('name')?.touched) {
+        <div class="form-error">El nombre es requerido.</div>
+        }
       </div>
       <div class="form-element">
-        <label for="username">Apellido</label>
-        <input type="text" id="username" name="username" />
+        <label for="lastName">Apellido</label>
+        <input type="text" id="lastName" formControlName="lastName" />
       </div>
     </div>
     <div class="form-element">
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" />
+      <label for="email">Email*</label>
+      <input type="email" id="email" formControlName="email" />
+      @if (registerForm.get('email')?.invalid &&
+      registerForm.get('email')?.touched) {
+      <div class="form-error">La correo es requerida.</div>
+      }
     </div>
     <div class="form-element">
-      <label for="password">Password</label>
-      <input type="password" id="password" name="password" />
+      <label for="password">Contaseña*</label>
+      <input type="password" id="password" formControlName="password" />
+      @if (registerForm.get('password')?.invalid &&
+      registerForm.get('password')?.touched) {
+      <div class="form-error">La contraseña es requerida.</div>
+      }
     </div>
   </div>
   <div class="form-footer">
