@@ -38,7 +38,6 @@ export class FormLogin implements OnInit {
 
       this.authService.login(this.loginData).subscribe({
         next: (response) => {
-          alert("Inicio de sesión exitoso: " + response.body.token);
           //Redireccionar a la página principal o dashboard aquí
         },
         error: (error) => {

@@ -5,6 +5,8 @@ import {
   ReactiveFormsModule,
   Validators,
 } from "@angular/forms";
+import { AuthService } from "../../services/auth";
+import { RegisterData } from "../../models/RegisterData.model";
 
 @Component({
   selector: "app-form-register",
@@ -14,8 +16,9 @@ import {
 })
 export class FormRegister implements OnInit {
   registerForm!: FormGroup;
+  errorMessage: string | null = null;
 
-  constructor() {}
+  constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
     this.registerForm = new FormGroup({
@@ -31,9 +34,19 @@ export class FormRegister implements OnInit {
 
   onSubmit() {
     if (this.registerForm.valid) {
-      console.log("Formulario enviado:", this.registerForm.value);
+      const registerData: RegisterData = {
+        name: this.registerForm.value.name,
+        lastName: this.registerForm.value.lastName,
+        email: this.registerForm.value.email,
+        password: this.registerForm.value.password,
+      };
+
+      this.authService.register(registerData).subscribe({
+        error: (error) => {
+          this.errorMessage = error.message;
+        },
+      });
     } else {
-      console.log("Formulario inválido");
       this.registerForm.markAllAsTouched(); // Marca todos los campos como tocados para mostrar los errores
     }
   }

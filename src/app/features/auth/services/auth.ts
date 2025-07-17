@@ -3,6 +3,8 @@ import { Injectable } from "@angular/core";
 import { catchError, Observable, tap, throwError } from "rxjs";
 import { AuthResponse } from "../models/AuthResponse.model";
 import { LoginData } from "../models/LoginData.model";
+import { RegisterData } from "../models/RegisterData.model";
+import { Token } from "@angular/compiler";
 
 @Injectable({
   providedIn: "root",
@@ -25,12 +27,30 @@ export class AuthService {
       );
   }
 
+  register(registerModel: RegisterData): Observable<any> {
+    const registerInfo = {
+      email: registerModel.email,
+      password: registerModel.password,
+    };
+
+    return this.http
+      .post<AuthResponse>(`${AuthService.apiUrl}/register`, registerInfo, {
+        observe: "response",
+      })
+      .pipe(
+        tap((response) => {
+          localStorage.setItem("token", response.body?.token || "");
+        }),
+        catchError(this.handleError)
+      );
+  }
+
   private handleError(error: HttpErrorResponse): Observable<never> {
     let errorMessage = "";
 
     switch (error.status) {
       case 400:
-        errorMessage = "Informacion inválida: " + error.error.message;
+        errorMessage = error.error.message;
         break;
       case 401:
         errorMessage = "No autorizado";
