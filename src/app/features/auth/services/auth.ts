@@ -1,18 +1,23 @@
-import { HttpClient, HttpErrorResponse } from "@angular/common/http";
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpParams,
+} from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { catchError, Observable, tap, throwError } from "rxjs";
+import { catchError, Observable, of, tap, throwError } from "rxjs";
 import { AuthResponse } from "../models/AuthResponse.model";
 import { LoginData } from "../models/LoginData.model";
 import { RegisterData } from "../models/RegisterData.model";
-import { Token } from "@angular/compiler";
+import { Router } from "@angular/router";
 
 @Injectable({
   providedIn: "root",
 })
 export class AuthService {
   private static apiUrl = "http://localhost:8000/api/auth";
+  private tokenKey: string = "authToken";
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   login(loginModel: LoginData): Observable<any> {
     return this.http
@@ -21,7 +26,8 @@ export class AuthService {
       })
       .pipe(
         tap((response) => {
-          localStorage.setItem("token", response.body?.token || "");
+          this.setToken(response.body?.token || "");
+          this.router.navigate(["/user-dashboard"]);
         }),
         catchError(this.handleError)
       );
@@ -39,9 +45,22 @@ export class AuthService {
       })
       .pipe(
         tap((response) => {
-          localStorage.setItem("token", response.body?.token || "");
+          this.setToken(response.body?.token || "");
+          this.router.navigate(["/user-dashboard"]);
         }),
         catchError(this.handleError)
+      );
+  }
+
+  isAuthenticated(): Observable<boolean> {
+    return this.http
+      .get<boolean>(`${AuthService.apiUrl}/is-token-valid`, {
+        params: { token: this.getToken() },
+      })
+      .pipe(
+        catchError((err) => {
+          return of(false);
+        })
       );
   }
 
@@ -68,5 +87,22 @@ export class AuthService {
     }
 
     return throwError(() => new Error(errorMessage));
+  }
+
+  logOut(): void {
+    this.removeToken();
+    this.router.navigate([""]);
+  }
+
+  setToken(token: string): void {
+    localStorage.setItem(this.tokenKey, token);
+  }
+
+  getToken(): string {
+    return localStorage.getItem(this.tokenKey) || "";
+  }
+
+  removeToken(): void {
+    localStorage.removeItem(this.tokenKey);
   }
 }
