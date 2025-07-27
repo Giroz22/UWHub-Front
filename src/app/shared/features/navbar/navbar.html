@@ -1,0 +1,66 @@
+<div class="navbar-container">
+  <!-- Navbar horizontal -->
+  <div class="navbar-horizontal">
+    <!-- Navbar Left -->
+    <div class="navbar-left"></div>
+
+    <!-- Navbar Center -->
+    <div class="navbar-center">
+      <h2>UWHub</h2>
+    </div>
+
+    <!-- Navbar Right -->
+    <div class="navbar-right">
+      <a>
+        <lucide-icon [img]="CircleUserRound" class="my-icon"></lucide-icon>
+      </a>
+    </div>
+  </div>
+
+  <!-- Navbar vertical -->
+  <div
+    class="navbar-vertical"
+    [class.open-v-navbar]="isOpen"
+    (mouseenter)="isOpen = true"
+    (mouseleave)="isOpen = false"
+  >
+    <!-- Navbar Top -->
+    <div class="navbar-top">
+      <a class="navbar-v-option">
+        <div class="icon">
+          <lucide-icon
+            [img]="Menu"
+            class="my-icon"
+            (click)="toggleMenu()"
+          ></lucide-icon>
+        </div>
+        <h2 class="content">UWHub</h2>
+      </a>
+    </div>
+
+    <!-- Navbar Middle -->
+    <div class="navbar-middle">
+      <ul class="menu">
+        <li class="navbar-v-option">
+          <a class="icon" for="search" (click)="toggleMenu()">
+            <lucide-icon [img]="Search" class="my-icon"></lucide-icon>
+          </a>
+          <div class="content">
+            <input type="text" id="search" placeholder="Search..." />
+            <button type="submit">Buscar</button>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Navbar Bottom -->
+    <div class="navbar-bottom">
+      <a class="navbar-v-option">
+        <div class="icon">
+          <lucide-icon [img]="Bolt" class="my-icon"></lucide-icon>
+        </div>
+        <span class="content"> Ajustes </span>
+      </a>
+    </div>
+  </div>
+</div>

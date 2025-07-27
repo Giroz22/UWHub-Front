@@ -1,9 +1,9 @@
 import { Component } from "@angular/core";
-import { RouterOutlet } from "@angular/router";
+import { Navbar } from "../../../../shared/features/navbar/navbar";
 
 @Component({
   selector: "app-user-dashboard",
-  imports: [],
+  imports: [Navbar],
   templateUrl: "./user-dashboard.html",
   styleUrl: "./user-dashboard.scss",
 })

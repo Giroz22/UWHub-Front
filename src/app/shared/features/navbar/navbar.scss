@@ -1,0 +1,141 @@
+@use "../../../../styles/variables" as *;
+
+$thickness-navbar: 64px;
+$max-width-v-navbar: 80vw;
+
+.navbar-container {
+  position: relative;
+  display: flex;
+  flex-direction: row-reverse;
+
+  // Navbar Horizontal
+  .navbar-horizontal {
+    background-color: $color-background-dark;
+    border-bottom: 1px solid $color-background-light;
+
+    position: absolute;
+    top: 0%;
+    right: 0%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    position: relative;
+    width: 100%;
+    height: $thickness-navbar;
+
+    gap: 10px;
+
+    .navbar-left {
+      width: 10%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .navbar-center {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .navbar-right {
+      width: 10%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  // Navbar vertical
+  .navbar-vertical {
+    background-color: $color-background-dark;
+    border-right: 1px solid $color-background-light;
+
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: $thickness-navbar;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    overflow: hidden;
+    transition: $transition;
+
+    .navbar-middle {
+      flex: 1;
+      .menu {
+        #search {
+          background-color: transparent;
+          border: none;
+          color: $color-background-light;
+          width: 80%;
+          margin-right: 10px;
+
+          padding: 10px 5px;
+          border: 1px solid $color-background-light;
+          border-radius: $border-radius;
+
+          &:focus {
+            outline: none;
+            border: 1px solid $color-primary;
+          }
+        }
+      }
+    }
+
+    .navbar-v-option {
+      display: flex;
+      align-items: center;
+      height: $thickness-navbar;
+      min-width: $max-width-v-navbar;
+
+      .icon {
+        width: $thickness-navbar;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .content {
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        flex: 1;
+        height: 100%;
+        padding-right: 20px;
+      }
+
+      &:hover {
+        background-color: $color-background-medium;
+      }
+    }
+  }
+  .open-v-navbar {
+    width: 80vw;
+    z-index: 1000;
+  }
+}
+
+/* Tablets (≥768px y <1024px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+}
+
+/* Escritorio (≥1024px) */
+@media (min-width: 1024px) {
+  $max-width-v-navbar: 32vw;
+
+  .navbar-container {
+    .navbar-vertical {
+      .navbar-v-option {
+        min-width: $max-width-v-navbar;
+      }
+    }
+
+    .open-v-navbar {
+      width: $max-width-v-navbar;
+    }
+  }
+}
