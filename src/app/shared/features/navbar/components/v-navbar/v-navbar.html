@@ -1,0 +1,39 @@
+<!-- Navbar vertical -->
+<div
+  class="navbar-vertical"
+  [class.open-v-navbar]="isOpen"
+  (mouseenter)="isOpen = true"
+  (mouseleave)="isOpen = false"
+>
+  <!-- Navbar Top -->
+  <div class="navbar-top">
+    <a class="icon">
+      <div>
+        <lucide-icon
+          [img]="Menu"
+          class="my-icon"
+          (click)="toggleMenu()"
+        ></lucide-icon>
+      </div>
+    </a>
+    <app-logo class="content"></app-logo>
+  </div>
+
+  <!-- Navbar Middle -->
+  <div class="navbar-middle">
+    <app-v-option class="option">
+      <lucide-icon [img]="Search" class="my-icon" option-icon></lucide-icon>
+
+      <app-search-bar option-content class="content"></app-search-bar>
+    </app-v-option>
+  </div>
+
+  <!-- Navbar Bottom -->
+  <div class="navbar-bottom">
+    <app-v-option class="option">
+      <lucide-icon [img]="Bolt" class="my-icon" option-icon></lucide-icon>
+
+      <span option-content class="content">Ajustes</span>
+    </app-v-option>
+  </div>
+</div>

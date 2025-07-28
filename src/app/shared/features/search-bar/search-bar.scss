@@ -1,0 +1,22 @@
+@use "../../../../styles/variables" as *;
+
+.search-bar {
+  display: flex;
+  gap: $spacing-x;
+  padding-inline: $spacing-x;
+  width: 100%;
+
+  .search-input {
+    flex: 1;
+    padding: $spacing-y $spacing-x;
+    border: 1px solid $color-background-light;
+    border-radius: $border-radius;
+
+    &:focus {
+      outline: none;
+      border-color: $color-primary;
+      box-shadow: $shadow;
+      transition: $transition;
+    }
+  }
+}

@@ -1,0 +1,40 @@
+@use "../../../../../../styles/variables" as *;
+
+$thickness-navbar: 64px;
+$max-width-v-navbar: 80vw;
+
+.v-option {
+  display: flex;
+  align-items: center;
+  height: $thickness-navbar;
+  min-width: $max-width-v-navbar;
+
+  .icon {
+    width: $thickness-navbar;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .content {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    flex: 1;
+    height: 100%;
+    padding-right: 20px;
+    background-color: red;
+  }
+
+  &:hover {
+    background-color: $color-background-medium;
+  }
+}
+
+/* Escritorio (≥1024px) */
+@media (min-width: 1024px) {
+  $max-width-v-navbar: 32vw;
+
+  .v-option {
+    min-width: $max-width-v-navbar;
+  }
+}

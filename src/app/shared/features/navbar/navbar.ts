@@ -1,26 +1,11 @@
 import { Component } from "@angular/core";
-import {
-  LucideAngularModule,
-  Menu,
-  Search,
-  CircleUserRound,
-  Bolt,
-} from "lucide-angular";
+import { HNavbar } from "./components/h-navbar/h-navbar";
+import { VNavbar } from "./components/v-navbar/v-navbar";
 
 @Component({
   selector: "app-navbar",
-  imports: [LucideAngularModule],
+  imports: [HNavbar, VNavbar],
   templateUrl: "./navbar.html",
   styleUrl: "./navbar.scss",
 })
-export class Navbar {
-  readonly Menu = Menu;
-  readonly Search = Search;
-  readonly CircleUserRound = CircleUserRound;
-  readonly Bolt = Bolt;
-
-  isOpen: boolean = false;
-  toggleMenu() {
-    this.isOpen = !this.isOpen;
-  }
-}
+export class Navbar {}

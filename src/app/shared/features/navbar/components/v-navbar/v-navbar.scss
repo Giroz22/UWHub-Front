@@ -1,0 +1,93 @@
+@use "../../../../../../styles/variables" as *;
+@use "../../navbar.scss" as *;
+
+// Navbar vertical
+.navbar-vertical {
+  background-color: $color-background-dark;
+  border-right: 1px solid $color-background-light;
+
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: $thickness-navbar;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  overflow: hidden;
+  transition: $transition;
+
+  .navbar-top {
+    display: flex;
+    align-items: center;
+    min-width: $max-width-v-navbar;
+    height: $thickness-navbar;
+    border-bottom: 1px solid $color-background-light;
+
+    .icon {
+      width: $thickness-navbar;
+      height: 100%;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      cursor: pointer;
+      transition: $transition;
+
+      border-right: 1px solid $color-background-light;
+
+      &:hover {
+        background-color: $color-background-medium;
+      }
+    }
+    .content {
+      flex: 1;
+      height: 100%;
+    }
+  }
+  .navbar-middle {
+    flex: 1;
+  }
+}
+.open-v-navbar {
+  width: 80vw;
+  z-index: 1000;
+}
+
+.option {
+  .my-icon {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .content {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+}
+
+/* Tablets (≥768px y <1024px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+}
+
+/* Escritorio (≥1024px) */
+@media (min-width: 1024px) {
+  $max-width-v-navbar: 32vw;
+
+  .navbar-vertical {
+    .navbar-top {
+      min-width: $max-width-v-navbar;
+    }
+  }
+
+  .open-v-navbar {
+    width: $max-width-v-navbar;
+  }
+}
