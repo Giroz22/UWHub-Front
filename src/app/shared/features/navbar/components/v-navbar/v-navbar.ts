@@ -1,8 +1,9 @@
-import { Component } from "@angular/core";
+import { Component, inject } from "@angular/core";
 import { VOption } from "../v-option/v-option";
-import { LucideAngularModule, Menu, Search, Bolt } from "lucide-angular";
+import { LucideAngularModule, Menu, Search, LogOut } from "lucide-angular";
 import { SearchBar } from "../../../search-bar/search-bar";
 import { Logo } from "../../../logo/logo";
+import { TokenService } from "../../../../services/token.service";
 
 @Component({
   selector: "app-v-navbar",
@@ -13,7 +14,9 @@ import { Logo } from "../../../logo/logo";
 export class VNavbar {
   readonly Menu = Menu;
   readonly Search = Search;
-  readonly Bolt = Bolt;
+  readonly LogOut = LogOut;
+
+  tokenService: TokenService = inject(TokenService);
 
   isOpen: boolean = false;
 

@@ -30,10 +30,10 @@
 
   <!-- Navbar Bottom -->
   <div class="navbar-bottom">
-    <app-v-option class="option">
-      <lucide-icon [img]="Bolt" class="my-icon" option-icon></lucide-icon>
+    <app-v-option class="option" (click)="tokenService.logOut()">
+      <lucide-icon [img]="LogOut" class="my-icon" option-icon></lucide-icon>
 
-      <span option-content class="content">Ajustes</span>
+      <span option-content class="content">Salir</span>
     </app-v-option>
   </div>
 </div>
