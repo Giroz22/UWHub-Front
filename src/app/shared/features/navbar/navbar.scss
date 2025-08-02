@@ -4,9 +4,23 @@ $thickness-navbar: 64px;
 $max-width-v-navbar: 80vw;
 
 .navbar-container {
-  position: relative;
-  display: flex;
-  flex-direction: row-reverse;
+  width: 100vw;
+  height: 100vh;
+
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: $thickness-navbar 1fr;
+  grid-template-areas:
+    "navbar-vertical navbar-vertical"
+    "navbar-horizontal content"
+    "navbar-horizontal content";
+
+  // display: flex;
+  // flex-direction: row;
+}
+
+.content {
+  grid-area: content;
 }
 
 /* Tablets (≥768px y <1024px) */

@@ -35,6 +35,8 @@ export class AuthService {
 
   register(registerModel: RegisterData): Observable<any> {
     const registerInfo = {
+      name: registerModel.name,
+      lastname: registerModel.lastname,
       email: registerModel.email,
       password: registerModel.password,
     };

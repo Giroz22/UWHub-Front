@@ -8,4 +8,6 @@ import { VNavbar } from "./components/v-navbar/v-navbar";
   templateUrl: "./navbar.html",
   styleUrl: "./navbar.scss",
 })
-export class Navbar {}
+export class Navbar {
+  
+}

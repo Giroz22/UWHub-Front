@@ -23,7 +23,7 @@ export class FormRegister implements OnInit {
   ngOnInit(): void {
     this.registerForm = new FormGroup({
       name: new FormControl("", Validators.required),
-      lastName: new FormControl(""),
+      lastname: new FormControl(""),
       email: new FormControl("", [Validators.required, Validators.email]),
       password: new FormControl("", [
         Validators.required,
@@ -36,7 +36,7 @@ export class FormRegister implements OnInit {
     if (this.registerForm.valid) {
       const registerData: RegisterData = {
         name: this.registerForm.value.name,
-        lastName: this.registerForm.value.lastName,
+        lastname: this.registerForm.value.lastname,
         email: this.registerForm.value.email,
         password: this.registerForm.value.password,
       };

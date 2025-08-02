@@ -1,6 +1,7 @@
-import { Component } from "@angular/core";
+import { Component, inject } from "@angular/core";
 import { LucideAngularModule, CircleUserRound } from "lucide-angular";
 import { Logo } from "../../../logo/logo";
+import { UserService } from "../../../../services/user.service";
 
 @Component({
   selector: "app-h-navbar",
@@ -10,4 +11,6 @@ import { Logo } from "../../../logo/logo";
 })
 export class HNavbar {
   readonly CircleUserRound = CircleUserRound;
+
+  userService = inject(UserService);
 }

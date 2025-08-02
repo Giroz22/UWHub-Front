@@ -3,12 +3,11 @@
 
 // Navbar vertical
 .navbar-vertical {
+  grid-area: navbar-vertical;
+
   background-color: $color-background-dark;
   border-right: 1px solid $color-background-light;
 
-  position: absolute;
-  top: 0%;
-  left: 0%;
   width: $thickness-navbar;
   height: 100vh;
 

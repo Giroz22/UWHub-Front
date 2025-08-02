@@ -1,6 +1,5 @@
-export interface RegisterData {
+export interface UserModel {
   name: string;
   lastname: string;
   email: string;
-  password: string;
 }

@@ -9,9 +9,8 @@
   </div>
 
   <!-- Navbar Right -->
-  <div class="navbar-right">
-    <a>
-      <lucide-icon [img]="CircleUserRound" class="my-icon"></lucide-icon>
-    </a>
-  </div>
+  <a class="navbar-right">
+    <lucide-icon [img]="CircleUserRound" class="my-icon"></lucide-icon>
+    <span class="username">Hola {{ this.userService.user().name }}!!</span>
+  </a>
 </div>

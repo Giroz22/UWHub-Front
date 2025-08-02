@@ -16,7 +16,7 @@ export class VNavbar {
   readonly Bolt = Bolt;
 
   isOpen: boolean = false;
-  
+
   toggleMenu() {
     this.isOpen = !this.isOpen;
   }
