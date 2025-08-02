@@ -17,6 +17,14 @@ body {
 button {
   background: transparent;
   color: $color-background-light;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.button {
+  background: transparent;
+  color: $color-background-light;
   border: 2px solid $color-background-light;
   padding: 0.5rem 1rem;
   border-radius: $border-radius;

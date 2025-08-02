@@ -1,10 +1,11 @@
 import { Component, inject, OnInit } from "@angular/core";
 import { Navbar } from "../../../../shared/features/navbar/navbar";
 import { UserService } from "../../../../shared/services/user.service";
+import { RouterOutlet } from "@angular/router";
 
 @Component({
   selector: "app-user-dashboard",
-  imports: [Navbar],
+  imports: [Navbar, RouterOutlet],
   templateUrl: "./user-dashboard.html",
   styleUrl: "./user-dashboard.scss",
 })

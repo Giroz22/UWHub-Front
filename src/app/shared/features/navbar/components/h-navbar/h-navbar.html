@@ -9,8 +9,5 @@
   </div>
 
   <!-- Navbar Right -->
-  <a class="navbar-right">
-    <lucide-icon [img]="CircleUserRound" class="my-icon"></lucide-icon>
-    <span class="username">Hola {{ this.userService.user().name }}!!</span>
-  </a>
+  <app-dropdown-menu class="navbar-right"></app-dropdown-menu>
 </div>

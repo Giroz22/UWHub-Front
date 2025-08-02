@@ -1,16 +1,13 @@
-import { Component, inject } from "@angular/core";
-import { LucideAngularModule, CircleUserRound } from "lucide-angular";
+import { Component } from "@angular/core";
 import { Logo } from "../../../logo/logo";
-import { UserService } from "../../../../services/user.service";
+import { DropdownMenu } from "../../../dropdown-menu/dropdown-menu";
 
 @Component({
   selector: "app-h-navbar",
-  imports: [LucideAngularModule, Logo],
+  imports: [Logo, DropdownMenu],
   templateUrl: "./h-navbar.html",
   styleUrl: "./h-navbar.scss",
 })
 export class HNavbar {
-  readonly CircleUserRound = CircleUserRound;
-
-  userService = inject(UserService);
+  
 }

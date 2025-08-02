@@ -1,23 +1,23 @@
-import {
-  HttpClient,
-  HttpErrorResponse,
-  HttpParams,
-} from "@angular/common/http";
+import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { catchError, Observable, of, tap, throwError } from "rxjs";
 import { AuthResponse } from "../models/AuthResponse.model";
 import { LoginData } from "../models/LoginData.model";
 import { RegisterData } from "../models/RegisterData.model";
 import { Router } from "@angular/router";
+import { TokenService } from "../../../shared/services/token.service";
 
 @Injectable({
   providedIn: "root",
 })
 export class AuthService {
   private static apiUrl = "http://localhost:8000/api/auth";
-  private tokenKey: string = "authToken";
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private tokenService: TokenService
+  ) {}
 
   login(loginModel: LoginData): Observable<any> {
     return this.http
@@ -26,8 +26,8 @@ export class AuthService {
       })
       .pipe(
         tap((response) => {
-          this.setToken(response.body?.token || "");
-          this.router.navigate(["/user-dashboard"]);
+          this.tokenService.setToken(response.body?.token || "");
+          this.router.navigate(["/dashboard"]);
         }),
         catchError(this.handleError)
       );
@@ -47,8 +47,8 @@ export class AuthService {
       })
       .pipe(
         tap((response) => {
-          this.setToken(response.body?.token || "");
-          this.router.navigate(["/user-dashboard"]);
+          this.tokenService.setToken(response.body?.token || "");
+          this.router.navigate(["/dashboard"]);
         }),
         catchError(this.handleError)
       );
@@ -57,7 +57,7 @@ export class AuthService {
   isAuthenticated(): Observable<boolean> {
     return this.http
       .get<boolean>(`${AuthService.apiUrl}/is-token-valid`, {
-        params: { token: this.getToken() },
+        params: { token: this.tokenService.getToken() },
       })
       .pipe(
         catchError((err) => {
@@ -89,22 +89,5 @@ export class AuthService {
     }
 
     return throwError(() => new Error(errorMessage));
-  }
-
-  logOut(): void {
-    this.removeToken();
-    this.router.navigate([""]);
-  }
-
-  setToken(token: string): void {
-    localStorage.setItem(this.tokenKey, token);
-  }
-
-  getToken(): string {
-    return localStorage.getItem(this.tokenKey) || "";
-  }
-
-  removeToken(): void {
-    localStorage.removeItem(this.tokenKey);
   }
 }

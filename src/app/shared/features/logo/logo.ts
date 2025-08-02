@@ -11,6 +11,6 @@ export class Logo {
   constructor(private router: Router) {}
 
   navigateToHome() {
-    this.router.navigate(["/user-dashboard"]);
+    this.router.navigate(["/dashboard"]);
   }
 }

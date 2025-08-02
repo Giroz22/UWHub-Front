@@ -1,0 +1,35 @@
+<div class="dropdown-menu">
+  <button class="dropdown-button" (click)="toggleDropdown()">
+    <lucide-icon [img]="CircleUserRound" class="my-icon"></lucide-icon>
+  </button>
+
+  @if (isOpen) {
+  <div class="dropdown-content" (mouseleave)="toggleDropdown()">
+    <div class="dropdown-header">
+      <div class="dropdown-info-user">
+        @if (true) {
+        <lucide-icon
+          [img]="CircleUserRound"
+          class="my-icon avatar"
+          [size]="42"
+        ></lucide-icon>
+        } @else {
+        <img src="" alt="" class="avatar" />
+        }
+        <span>Hola {{ user().name }}!!</span>
+        <samp>{{ user().email }}</samp>
+      </div>
+    </div>
+    <div class="dropdown-main">
+      <button class="dropdown-item" (click)="redirectPerfile()">
+        Mi perfil
+      </button>
+    </div>
+    <div class="dropdown-footer">
+      <button class="dropdown-item" (click)="tokenService.logOut()">
+        Cerrar sesión
+      </button>
+    </div>
+  </div>
+  }
+</div>
