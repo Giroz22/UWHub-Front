@@ -22,6 +22,31 @@ button {
   padding: 0;
 }
 
+input {
+  background: transparent;
+  color: $color-background-light;
+  border: none;
+  padding: 0;
+
+  &:focus {
+    outline: none;
+    background-color: transparent;
+  }
+}
+
+.input {
+  background: transparent;
+  color: $color-background-light;
+  border: 1px solid $color-background-light;
+  border-radius: $border-radius;
+  padding: $spacing-y $spacing-x;
+
+  &:focus {
+    outline: none;
+    background-color: transparent;
+  }
+}
+
 .button {
   background: transparent;
   color: $color-background-light;

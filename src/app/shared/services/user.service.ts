@@ -13,6 +13,11 @@ export class UserService {
     name: "",
     lastname: "",
     email: "",
+    dateOfBirth: "",
+    profilePictureUrl: "",
+    athlete: "",
+    coach: "",
+    judge: "",
   });
 
   readonly user = this._user;

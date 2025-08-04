@@ -1,1 +1,94 @@
-<p>profile works!</p>
+<div class="profile-container">
+  <div class="profile-info">
+    <!-- Avatar -->
+    <div class="avatar">
+      <img
+        src="https://flowgpt.com/_next/image?url=https%3A%2F%2Fimage-cdn.flowgpt.com%2Ftrans-images%2F1746142461042-c841fa17-03b2-46ab-b474-90cc420ba73e.default.webp&w=1024&q=75"
+        alt="User avatar profile"
+      />
+    </div>
+
+    <!-- General info -->
+    <div class="general-info">
+      <div class="personal-info">
+        <div class="info-title">
+          <h2>Información personal</h2>
+          <hr />
+        </div>
+
+        <div class="info-section">
+          <div class="input-container">
+            <label for="name">Nombre:</label>
+            <input
+              class="input"
+              type="text"
+              placeholder="Nombre"
+              id="name"
+              [value]="userInfo().name"
+            />
+          </div>
+
+          <div class="input-container">
+            <label for="lastname">Apellido:</label>
+
+            <input
+              class="input"
+              type="text"
+              placeholder="Apellido"
+              id="lastname"
+              [value]="userInfo().lastname"
+            />
+          </div>
+
+          <div class="input-container">
+            <label for="username">Nombre de usuario:</label>
+            <input
+              class="input"
+              type="text"
+              placeholder="Nombre de usuario"
+              id="username"
+            />
+          </div>
+
+          <div class="input-container">
+            <label for="email">Correo:</label>
+            <input
+              class="input"
+              type="text"
+              placeholder="Correo"
+              id="email"
+              [value]="userInfo().email"
+            />
+          </div>
+
+          <div class="input-container">
+            <label for="birthday">Fecha de naciento:</label>
+            <input
+              class="input"
+              type="date"
+              placeholder="Fecha de Cumple años"
+              id="birthday"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Action buttons -->
+      <div class="action-buttons">
+        @if (!isEditMode) {
+        <button class="button button-edit" (click)="toggleEditMode()">
+          Editar perfil
+        </button>
+        } @else {
+        <button class="button button-update" (click)="onCancel()">
+          Actualizar
+        </button>
+
+        <button class="button button-cancel" (click)="onCancel()">
+          Cancelar
+        </button>
+        }
+      </div>
+    </div>
+  </div>
+</div>
